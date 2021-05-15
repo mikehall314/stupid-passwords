@@ -1,0 +1,27 @@
+{
+    "name": "mikehall314/stupid-password",
+    "description": "A library to check if your password appears in the top 10,000 most used passwords",
+    "license": "MIT",
+    "keywords": [
+        "password",
+        "security"
+    ],
+    "authors": [
+        {
+            "name": "Mike Hall",
+            "email": "mikehall314@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stupid\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.6"
+    }
+}
