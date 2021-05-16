@@ -19,9 +19,12 @@ final class StupidPasswordTest extends TestCase
     {
         $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+        // Generate a random password which shouldn't (but, of course, may...)
+        // appear in the password list
         $password = "";
-        for ($i = 0; $i < 15; $i += 1) {
-            $randstring .= $characters[rand(0, strlen($chars))];
+        while (strlen($password) < 15) {
+            $index = rand(0, strlen($chars));
+            $password .= $chars[$index];
         }
 
         $stupid = Password::isStupid($password);
@@ -30,13 +33,15 @@ final class StupidPasswordTest extends TestCase
 
     public function testFirstPassword()
     {
-        $stupid = Password::isStupid("123456");
-        $this->assertTrue($stupid, "123456 is a stupid password");
+        // Hashes to 00026b8... first in the dict
+        $stupid = Password::isStupid("??????");
+        $this->assertTrue($stupid, "?????? is a stupid password");
     }
 
     public function testLastPassword()
     {
-        $stupid = Password::isStupid("brady");
-        $this->assertTrue($stupid, "brady is a stupid password");
+        // Hashes to ffff80d... last in the dict
+        $stupid = Password::isStupid("mirror");
+        $this->assertTrue($stupid, "mirror is a stupid password");
     }
 }
