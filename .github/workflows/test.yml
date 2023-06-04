@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container: shivammathur/node:latest-amd64
+    strategy:
+      matrix:
+        php-versions:
+        - '7.3'
+        - '7.4'
+        - '8.0'
+        - '8.1'
+        - '8.2'
+    name: PHP ${{ matrix.php-versions }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+    - run: composer install
+    - run: vendor/bin/phpunit test
