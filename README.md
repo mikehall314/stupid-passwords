@@ -31,11 +31,11 @@ a bunch of SHAs.
 
 ## I can just reverse the passwords from the SHAs though
 
-Go crazy. The list is on Wikipedia anyway.
+Go crazy. The list is on GitHub anyway.
 
 ## Doesn't it go out of date
 
-Sure. I'll update it from time-to-time. The last update was 15 May 2021.
+Sure. I'll update it from time-to-time. The last update was 4 June 2023.
 
 # License
 
