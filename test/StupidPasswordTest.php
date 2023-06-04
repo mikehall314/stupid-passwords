@@ -22,8 +22,8 @@ final class StupidPasswordTest extends TestCase
         // Generate a random password which shouldn't (but, of course, may...)
         // appear in the password list
         $password = "";
-        while (strlen($password) < 15) {
-            $index = rand(0, strlen($chars));
+        while (strlen($password) < 20) {
+            $index = random_int(0, strlen($chars) - 1);
             $password .= $chars[$index];
         }
 
